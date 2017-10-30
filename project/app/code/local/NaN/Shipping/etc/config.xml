@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+    <modules>
+        <NaN_Shipping>
+            <version>0.1.0</version>
+        </NaN_Shipping>
+    </modules>
+    <global>
+        <blocks>
+            <nan_shipping>
+                <class>NaN_Shipping_Block</class>
+            </nan_shipping>
+        </blocks>
+        <helpers>
+            <nan_shipping>
+                <class>NaN_Shipping_Helper</class>
+            </nan_shipping>
+        </helpers>
+        <models>
+            <nan_shipping>
+                <class>NaN_Shipping_Model</class>
+            </nan_shipping>
+        </models>
+        <events>
+            <checkout_controller_onepage_save_shipping_method>
+                <observers>
+                    <nan_shipping>
+                        <class>nan_shipping/observer</class>
+                        <method>saveShippingMethod</method>
+                    </nan_shipping>
+                </observers>
+            </checkout_controller_onepage_save_shipping_method>
+        </events>
+    </global>
+    <default>
+        <carriers>
+            <nan_shipping>
+                <active>false</active>
+                <sallowspecific>0</sallowspecific>
+                <model>nan_shipping/carriers_timeShipping</model>
+                <name>Shipping + Time</name>
+                <price>10.00</price>
+                <title>NaN Shipping</title>
+                <type>O</type>
+                <typeLabel>Per Order</typeLabel>
+                <specificerrmsg>This shipping method is currently unavailable. If you would like to ship using this shipping method, please contact us.</specificerrmsg>
+                <handling_type>F</handling_type>
+                <input_time>0</input_time>
+            </nan_shipping>
+        </carriers>
+    </default>
+</config>
