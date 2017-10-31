@@ -38,6 +38,14 @@
                     </nan_shipping>
                 </observers>
             </sales_order_place_after>
+            <admin_system_config_changed_section_shipping>
+                <observers>
+                    <nan_shipping>
+                        <class>nan_shipping/observer</class>
+                        <method>updateOnMultiShipping</method>
+                    </nan_shipping>
+                </observers>
+            </admin_system_config_changed_section_shipping>
         </events>
     </global>
     <default>

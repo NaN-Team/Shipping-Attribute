@@ -48,5 +48,18 @@ class NaN_Shipping_Model_Observer extends Mage_Core_Model_Abstract
 
         $session->unsShippingTime();
     }
+
+    /**
+     * updateOnMultiShipping
+     * @param Varien_Event_Observer $event_Observer
+     */
+    public function updateOnMultiShipping(Varien_Event_Observer $event_Observer)
+    {
+        if (!Mage::getStoreConfig('shipping/option/checkout_multiple')) {
+            return;
+        }
+        Mage::getSingleton('core/session')->addError(Mage::helper('nan_shipping')->__('The NaN Shipping is now deactivate because it not support the multishipping method. Sorry Man.'));
+        Mage::getModel('core/config')->saveConfig('carriers/nan_shipping/active', 0);
+    }
 }
 
