@@ -33,7 +33,10 @@ class NaN_Shipping_Model_Observer extends Mage_Core_Model_Abstract
         Mage::log('Saved session content the shipping time: ' . Mage::getSingleton('core/session')->getShippingTime());
     }
 
-
+    /**
+     * saveOrderWithShippingTime
+     * @param Varien_Event_Observer $event_Observer
+     */
     public function saveOrderWithShippingTime(Varien_Event_Observer $event_Observer)
     {
         /** @var Mage_Core_Model_Session $session */
@@ -43,9 +46,10 @@ class NaN_Shipping_Model_Observer extends Mage_Core_Model_Abstract
         }
         /** @var Mage_Sales_Model_Order $order */
         $order = $event_Observer->getOrder();
-
-        //TODO: insert order id + shipping id + time value selected
-
+        $dateShipping = Mage::getModel('nan_shipping/shipping');
+        $dateShipping->setOrderId($order->getId());
+        $dateShipping->setDateValue($session->getShippingTime());
+        $dateShipping->save();
         $session->unsShippingTime();
     }
 

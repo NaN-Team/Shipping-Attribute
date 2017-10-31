@@ -24,9 +24,9 @@
             <nan_shipping_resource>
                 <class>NaN_Shipping_Model_Resource</class>
                 <entities>
-                    <nan_date_shipping>
+                    <shipping>
                         <table>nan_date_shipping</table>
-                    </nan_date_shipping>
+                    </shipping>
                 </entities>
             </nan_shipping_resource>
         </models>

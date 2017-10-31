@@ -6,7 +6,7 @@
 /**
  * Installer 0.1.0
  * MySQL installer.
- * @author NaN Team <nan.team.dev@gmail.com>
+ * @author  NaN Team <nan.team.dev@gmail.com>
  * @version 0.1.0
  * @package shipment
  */
@@ -15,7 +15,7 @@
 $installer = $this;
 $installer->startSetup();
 
-$tableNanDateShipping = $installer->getConnection()->newTable($installer->getTable("nan_shipping/nan_date_shipping"));
+$tableNanDateShipping = $installer->getConnection()->newTable($installer->getTable("nan_shipping/shipping"));
 
 $tableNanDateShipping->addColumn(
     "date_shipping_id",

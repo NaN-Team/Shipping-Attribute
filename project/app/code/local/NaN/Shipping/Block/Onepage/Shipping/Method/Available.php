@@ -6,7 +6,7 @@
 
 /**
  * Class NaN_Shipping_Block_Onepage_Shipping_Method_Available
- * @author NaN Team
+ * @author  NaN Team
  * @version 0.1.0
  * @package Shipping
  */
@@ -50,7 +50,7 @@ class NaN_Shipping_Block_Onepage_Shipping_Method_Available extends Mage_Checkout
 
     public function getCarrierName($carrierCode)
     {
-        if ($name = Mage::getStoreConfig('carriers/'.$carrierCode.'/title')) {
+        if ($name = Mage::getStoreConfig('carriers/' . $carrierCode . '/title')) {
             return $name;
         }
         return $carrierCode;
