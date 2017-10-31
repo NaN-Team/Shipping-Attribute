@@ -26,7 +26,7 @@ $tableNanDateShipping->addColumn(
 )->addColumn(
     "order_id",
     Varien_Db_Ddl_Table::TYPE_INTEGER,
-    null,
+    10,
     array("nullable" => false),
     "Order Id Fk"
 )->addColumn(
@@ -39,9 +39,7 @@ $tableNanDateShipping->addColumn(
     $installer->getFkName('nan_shipping/nan_date_shipping', 'order_id', 'sales/order', 'entity_id'),
     'order_id',
     $installer->getTable('sales/order'),
-    'entity_id',
-    Varien_Db_Ddl_Table::ACTION_SET_NULL,
-    Varien_Db_Ddl_Table::ACTION_SET_NULL
+    'entity_id'
 );
 
 $installer->getConnection()->createTable($tableNanDateShipping);
