@@ -19,8 +19,24 @@
         <models>
             <nan_shipping>
                 <class>NaN_Shipping_Model</class>
+                <resourceModel>nan_shipping_resource</resourceModel>
             </nan_shipping>
+            <nan_shipping_resource>
+                <class>NaN_Shipping_Model_Resource</class>
+                <entities>
+                    <nan_date_shipping>
+                        <table>nan_date_shipping</table>
+                    </nan_date_shipping>
+                </entities>
+            </nan_shipping_resource>
         </models>
+        <resources>
+            <nan_shipping_setup>
+                <setup>
+                    <module>NaN_Shipping</module>
+                </setup>
+            </nan_shipping_setup>
+        </resources>
         <events>
             <checkout_controller_onepage_save_shipping_method>
                 <observers>
