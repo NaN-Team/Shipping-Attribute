@@ -30,6 +30,14 @@
                     </nan_shipping>
                 </observers>
             </checkout_controller_onepage_save_shipping_method>
+            <sales_order_place_after>
+                <observers>
+                    <nan_shipping>
+                        <class>nan_shipping/observer</class>
+                        <method>saveOrderWithShippingTime</method>
+                    </nan_shipping>
+                </observers>
+            </sales_order_place_after>
         </events>
     </global>
     <default>

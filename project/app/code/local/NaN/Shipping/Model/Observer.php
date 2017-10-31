@@ -10,6 +10,10 @@
  */
 class NaN_Shipping_Model_Observer extends Mage_Core_Model_Abstract
 {
+    /**
+     * saveShippingMethod
+     * @param Varien_Event_Observer $event_Observer
+     */
     public function saveShippingMethod(Varien_Event_Observer $event_Observer)
     {
         /** @var Mage_Core_Controller_Request_Http $request */
@@ -22,11 +26,19 @@ class NaN_Shipping_Model_Observer extends Mage_Core_Model_Abstract
             return;
         }
         //if the shipping_method selected don't have enabled the time choose
-        if (!Mage::getStoreConfig('carriers/' . ($quote->getShippingAddress()->getShippingRateByCode($request->getPost('shipping_method', null))->getCarrier()) . '/input_time')) {
+        if (!Mage::getStoreConfig('carriers/' . ($quote->getShippingAddress()->getShippingRateByCode($request->getPost('shipping_method'))->getCarrier()) . '/input_time')) {
             return;
         }
         Mage::getSingleton('core/session')->setShippingTime($shippingTime);
         Mage::log('Saved session content the shipping time: ' . Mage::getSingleton('core/session')->getShippingTime());
+    }
+
+
+    public function saveOrderWithShippingTime(Varien_Event_Observer $event_Observer)
+    {
+        /** @var Mage_Sales_Model_Order $order */
+        $order = $event_Observer->getOrder();
+        //TODO
     }
 }
 
